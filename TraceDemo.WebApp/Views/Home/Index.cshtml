@@ -3,11 +3,31 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <div class="container">
+    <div class="tracer container">
         <div class="row">
-            <div id="test"></div>
+            
+            <div class="col-md-12">
+                <input id="ip" placeholder="Enter IP Address" />
+                <button id="locateIpBtn" type="button" class="buttonload btn btn-primary">
+                    <i id="loader" class="fa fa-circle-o-notch fa-spin"></i> Go
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align: center;" id="publicIp"></h1>
+            </div>
+        </div>
+        <div id="test" class="row">
+            <div id="currentWeather1" class="col-12 col-xs-12 col-md-6">
+            </div>
+            <div id="currentWeather2" class="col-12 col-xs-12 col-md-6">
+            </div>
+            <div class="col-12 col-xs-12 col-md-12">
+                <div id="dailyWeather" class="row justify-content-md-center">
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

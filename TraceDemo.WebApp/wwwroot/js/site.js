@@ -46,7 +46,8 @@
             console.log('geoIpLookUp: ', geoIpLookUp);
             if (!geoIpLookUp) return;
             let lat = geoIpLookUp.latitude;
-            let lon = geoIpLookUp.longitude
+            let lon = geoIpLookUp.longitude;
+
             getWeather(lat, lon, (weather) => {
                 console.log('weather: ', weather);
                 buildContent(geoIpLookUp, weather);
@@ -56,18 +57,30 @@
 
     function loadByIp(ip) {
         $('#loader').show();
-        console.log(ip);
+
         getGeoByIp(ip, (geo) => {
             console.log('getGeoByIp: ', geo);
             if (!geo) return;
             let lat = geo.lat;
-            let lon = geo.lon
+            let lon = geo.lon;
+
             getWeather(lat, lon, (weather) => {
                 console.log('weather: ', weather);
                 buildContent(geo, weather);
                 $('#loader').hide();
             });
         });
+    }
+
+    function getWeatherIcon(key) {
+        let w = {
+            Rain: 'fas fa-cloud-rain',
+            Clear: 'far fa-sun',
+            Clouds: 'fas fa-cloud-meatball',
+            Sun: 'far fa-sun',
+            CloudSun: 'fas fa-cloud-sun'
+        };
+        return w[key] ?? w['CloudSun'];
     }
 
     function buildContent(geo, weather) {
@@ -114,17 +127,6 @@
         $('#currentWeather1').append(currentWeather1);
         $('#currentWeather2').append(currentWeather2);
         $('#dailyWeather').append(dailyWeather);
-    }
-
-    function getWeatherIcon(key) {
-        let w = {
-            Rain: 'fas fa-cloud-rain',
-            Clear: 'far fa-sun',
-            Clouds: 'fas fa-cloud-meatball',
-            Sun: 'far fa-sun',
-            CloudSun: 'fas fa-cloud-sun'
-        };
-        return w[key] ?? w['CloudSun'];
     }
 
     $('#locateIpBtn').click(() => {

@@ -11,7 +11,7 @@ namespace TraceDemo.Api.Controllers
     {
         [Route("weather")]
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<object>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(object))]
         [Produces("application/json")]
         public async Task<IActionResult> Get(double lat, double lon)
         {
@@ -27,7 +27,7 @@ namespace TraceDemo.Api.Controllers
 
         [Route("locate")]
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<object>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(object))]
         [Produces("application/json")]
         public async Task<IActionResult> Locate(string ip)
         {
